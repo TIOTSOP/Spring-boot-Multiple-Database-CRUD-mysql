@@ -7,7 +7,8 @@ Dynamic Multi Database Application with Spring Boot
 - Import as a maven project
 - Create Database ticket , the user in the application properties and insert data from (dbscript.sql) file.
 - Run the project
-- Type http://localhost:8094/tickets/ on browser and check
+- Type http://localhost:8094/tickets/ 
+- Type http://localhost:8094/pdf/tickets/ 
 
 
 # Technologies
