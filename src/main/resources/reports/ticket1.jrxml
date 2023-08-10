@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticket1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5b89e76-28f2-46c3-bf88-a42e052653e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+      customertick,
+      projettick,
+      todotick,
+      acteurtick,
+      statustick,
+      idtick,
+      datupdtick,
+      voltick
+FROM
+     ticket]]>
+	</queryString>
+	<field name="customertick" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="projettick" class="java.lang.String"/>
+	<field name="todotick" class="java.lang.String"/>
+	<field name="acteurtick" class="java.lang.String"/>
+	<field name="statustick" class="java.lang.Long"/>
+	<field name="id" class="java.lang.Long"/>
+	<field name="datupdtick" class="java.lang.String"/>
+	<field name="voltick" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="75" height="20" uuid="f3544dd4-240f-459f-966e-1b1c734fa56d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[customertick]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="0" width="77" height="20" uuid="f851c901-e529-4913-b6cb-c31402242b4d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[projettick]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="0" width="269" height="20" uuid="dda21c70-9b98-4809-877f-585b0c1b47e4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[todotick]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="59" height="20" uuid="c04810c4-89e7-4726-a0aa-ec552cbee1ab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[acteurtick]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="33" height="20" uuid="d009022c-acaf-48be-9692-ff4f67ed7eb8"/>
+				<text><![CDATA[voltick]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="42" height="20" uuid="bd93c664-f068-4ed6-8079-6d9f13b00508"/>
+				<text><![CDATA[statustick]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="75" height="20" uuid="e2704ffc-8e70-4afe-968b-6bf26c1e157e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customertick}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="77" height="20" uuid="212fd2ca-7d97-4591-baf5-822bb86f0301"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projettick}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="0" width="269" height="20" uuid="e8f2e93a-b127-456a-8131-5316df7000ed"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{todotick}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="0" width="59" height="20" uuid="7a5770ee-93e7-480d-9c53-ca6bccbd5afc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acteurtick}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="33" height="20" uuid="ac5c2910-b8b7-43ce-ada6-dffcc2081c5b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voltick}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="42" height="20" uuid="ea84ea6c-46f6-4b9a-b122-0ce8309e32c2"/>
+				<textFieldExpression><![CDATA[$F{statustick}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="26" splitType="Stretch"/>
+	</summary>
+</jasperReport>

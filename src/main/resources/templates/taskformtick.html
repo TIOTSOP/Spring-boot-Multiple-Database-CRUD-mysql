@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+ 
+</head>
+<body>
+<div class="container">
+    <a href="#" th:href="@{/tasks}">Liste des Task</a>
+	<a href="#" th:href="@{/tasksau}">Tasks actifs/priorites/actuers</a>
+    <a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+	<a href="#" th:href="@{/ticketsau}">Tickets actifs ou closes</a>
+	
+	<a href="#" th:href="@{/ticketsclose}">Tickets exécutes</a>
+	
+	<a href="#" th:href="@{/ticketsactif}">Tickets ouverts</a>
+	<a href="#" th:href="@{/showticketsstarts}">Tickets Commenses(starts)</a>
+	
+	<a href="#" th:href="@{/tasks}">Liste des tasks full</a>
+	<a href="#" th:href="@{/clients}">Liste des clients full</a>
+
+    <h2>Task Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${task}" th:action="@{/tasktick}" method="post">
+			<div class="form-group">
+                <label class="col-sm-2 control-label">id:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"  th:field="*{id}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">id tick</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{idtick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">datetask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{datetask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">doentask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{donetask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">acteurtask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{acteurtask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">obstask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{obstask}"/>
+                </div>
+            </div>
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">statustask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{statustask}"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+    <h2>Task Details of tick</h2>
+    <div th:if="${not #lists.isEmpty(tasks)}">
+        <table class="table table-striped">
+            <tr>
+                <th>id task</th>
+				<th>id ticket</th>
+                <th>date task</th>
+                <th>acteur task</th>
+				<th>done task</th>
+                <th>Start task</th>
+                <th>End task</th>
+                <th>obs task</th>
+				 <th>status task</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Startask</th>
+                <th>Clostask</th>
+                <th>AddComment</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.id}">   <a href="/task/${task.id}"> typcli </a> </td>
+                 <td th:text="${task.idtick}">codsoc</td>
+				 <td th:text="${task.datetask}">codtab</td>
+				 <td th:text="${task.acteurtask}">codcle</td>
+				 <td th:text="${task.donetask}">info1</td>
+                 <td th:text="${task.starttask}">codtab</td>
+                 <td th:text="${task.endtask}">codtab</td>
+				  <td th:text="${task.obstask}">codtab</td>
+				  <td th:text="${task.statustask}">info1</td>
+                <td><a th:href="${ '/task/' + task.id}">View</a></td>
+                <td><a th:href="${'/task/edit/' + task.id}">Edit</a></td>
+                <td><a th:href="${'/task/started/' + task.id}">started</a></td>
+                <td><a th:href="${'/task/closed/' + task.id}">closed</a></td>
+                <td><a th:href="${'/task/addcomment/' + task.id}">Add com</a></td>
+<!--                 <td><a th:href="${'/task/delete/' + task.id}">Delete</a></td> -->
+            </tr>
+        </table>
+    </div>
+	 <div th:if="${ #lists.isEmpty(tasks)}">
+        <h2>Empty Task List</h2>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

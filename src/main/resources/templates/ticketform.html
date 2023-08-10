@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+ 
+</head>
+<body>
+<div class="container">
+   <a href="#" th:href="@{/tickets}">Liste des Ticket</a>
+	<a href="#" th:href="@{/ticketsau}">Tickets actifs/priorites/actuers</a>
+    <h2>Ticket Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${ticket}" th:action="@{/ticket}" method="post">
+			<div class="form-group">
+                <label class="col-sm-2 control-label">id:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"  th:field="*{id}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">customertick:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{customertick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">projettick:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{projettick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">todo:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{todotick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">done:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{donetick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">acteur</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{acteurtick}"/>
+                </div>
+            </div>
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">date upload</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{datupdtick}"/>
+                </div>
+            </div>
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">Priorite</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{voltick}"/>
+                </div>
+            </div>
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">status</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{statustick}"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

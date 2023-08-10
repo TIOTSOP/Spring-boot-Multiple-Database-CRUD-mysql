@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des comments</title>
+
+   
+</head>
+<body>
+<div class="container">
+   
+	<a href="#" th:href="@{/comment/new}">Nouvelle Comment</a>
+	<a href="#" th:href="@{/comments}">Liste des comments full</a>
+	<a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+    <a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+	<a href="#" th:href="@{/ticketsau}">Tickets actifs ou closes</a>
+
+
+    <form class="form-horizontal" th:object="${MySeachZone}" th:action="@{/comments/ladate/}" method="post">
+		
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Entrer la date pour effecteur la recherche</label>
+            <div class="col-sm-5">
+                   <input type="text" id="searchcode"  class="form-control"  th:name="zonetexte" />
+            </div>
+            <div class="row">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        </div>
+        
+    
+    </form>
+
+
+    <form class="form-horizontal" th:object="${MySeachZone}" th:action="@{/comments/lecustomer/}" method="post">
+		
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Entrer le nom du client pour effecteur la recherche</label>
+            <div class="col-sm-5">
+                   <input type="text" id="searchcode"  class="form-control"  th:name="zonetexte" />
+            </div>
+            <div class="row">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        </div>
+        
+    
+    </form>
+
+
+
+    <div th:if="${not #lists.isEmpty(comments)}">
+        <h2>Comment List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id comment</th>
+				<th>comment</th>
+                <th>dtecom</th>
+                <th>idtask</th> 
+                <th>View</th>
+                <th>Edit</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="comment : ${comments}">
+                <td th:text="${comment.id}">   <a href="/comment/${comment.id}"> typcli </a> </td>
+                 <td th:text="${comment.obs}">codsoc</td>
+				 <td th:text="${comment.datecom}">codtab</td>
+                 <td th:text="${comment.idtask}">codtab</td>
+                <td><a th:href="${ '/comment/' + comment.id}">View</a></td>
+                <td><a th:href="${'/comment/edit/' + comment.id}">Edit</a></td>
+                 <td><a th:href="${'/comment/delete/' + comment.id}">Delete</a></td> 
+                 <td><a th:href="${'/comment/showtasks/' + comment.idtask}">Delete</a></td> 
+            </tr>
+        </table>
+    </div>
+	 <div th:if="${ #lists.isEmpty(comments)}">
+        <h2>Empty Comment List</h2>
+    </div>
+	
+</div>
+
+</body>
+</html>

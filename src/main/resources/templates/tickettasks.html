@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des ticket et tickettask</title>
+
+   
+</head>
+<body>
+<div class="container">
+   
+	<a href="#" th:href="@{/task/new}">Nouvelle Tickettask</a>
+	<a href="#" th:href="@{/tickettask}">Liste des tickettask full</a>
+	<a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+    <div th:if="${not #lists.isEmpty(tickettasks)}">
+        <h2>Tickettask List</h2>
+        <table class="table table-striped">
+            <tr>
+				<th>Customer ticket</th>
+                <th>Projet tick</th>
+				<th>Date Tick</th>
+				<th>Todo Tick</th>
+				 <th>Done task</th>
+				<th>Acteur task</th>
+				<th>Date task</th>
+				<th>status task</th>
+				<th>Acteur Tick</th>
+				<th>Status Tick</th>
+				<th>Priorite Tick</th>
+                <th>View</th>
+                <th>Edit</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="task : ${tickettasks}">
+                 <td th:text="${task.Ticket.customertick}">codsoc</td>
+				 <td th:text="${task.Ticket.projettick}">codsoc</td>
+				 <td th:text="${task.Ticket.datupdtick}">codsoc</td>
+				 <td th:text="${task.Ticket.todotick}">codsoc</td>
+				 <td th:text="${task.Task.donetask}">codsoc</td>
+				  <td th:text="${task.Task.datetask}">codsoc</td>
+				  <td th:text="${task.Task.statustask}">codsoc</td>
+				  <td th:text="${task.Ticket.acteurtick}">codsoc</td>
+				  <td th:text="${task.Ticket.statustick}">codsoc</td>
+				  <td th:text="${task.Ticket.voltick}">codsoc</td>
+                <td><a th:href="${ '/task/' + task.id}">View</a></td>
+                <td><a th:href="${'/task/edit/' + task.id}">Edit</a></td>
+<!--                 <td><a th:href="${'/task/delete/' + task.id}">Delete</a></td> -->
+            </tr>
+        </table>
+    </div>
+	 <div th:if="${ #lists.isEmpty(tickettasks)}">
+        <h2>Empty Tickettask List</h2>
+    </div>
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+ 
+</head>
+<body>
+<div class="container">
+   <a href="#" th:href="@{/tasks}">Liste des Task</a>
+	<a href="#" th:href="@{/tasksau}">Tasks actifs/priorites/actuers</a>
+    <h2>Task Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${task}" th:action="@{/task}" method="post">
+			<div class="form-group">
+                <label class="col-sm-2 control-label">id:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"  th:field="*{id}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">id tick</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{idtick}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">datetask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{datetask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">doentask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{donetask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">acteurtask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{acteurtask}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">obstask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{obstask}"/>
+                </div>
+            </div>
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">statustask</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{statustask}"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

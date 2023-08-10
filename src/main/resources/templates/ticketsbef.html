@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des proccess replication </title>
+
+</head>
+<body>
+<div class="container">
+	<h2>Etats des tickets en cours <span th:text="${lenow}"> Master</span></h2>
+	
+	  <div th:if="${not #lists.isEmpty(tickets)}">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th> 
+				<th>Customer</th>
+				<th>Projet</th>
+				<th>Done</th>
+				<th>ToDo</th>
+            </tr>
+            <tr th:each="client : ${tickets}">
+                <td th:text="${client.id}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.customertick}">Service</td>
+				<td th:text="${client.projettick}">Service</td>
+				<td th:text="${client.donetick}">Service</td>
+				<td th:text="${client.todotick}">Service</td>
+            </tr>
+        </table>
+    </div>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des proccess replication </title>
+
+</head>
+<body>
+<div class="container">
+	<h2>Etats de processus de replications en cours <span th:text="${lenow}"> Master</span></h2>
+
+	 
+	    <div th:if="${not #lists.isEmpty(masterproc)}">
+        <h2><span th:text="${masterip}"> Master</span> Master </h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+				<th>Host</th>
+				<th>Command</th>
+				<th>Time</th>
+				<th>State</th>
+            </tr>
+            <tr th:each="client : ${masterproc}">
+                <td th:text="${client.procid}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.prochost}">Service</td>
+				<td th:text="${client.proccommand}">Service</td>
+				<td th:text="${client.proctime}">Service</td>
+				<td th:text="${client.procstate}">Service</td>
+            </tr>
+        </table>
+    </div>
+	<div th:if="${ #lists.isEmpty(masterproc)}">
+		<div th:if="${ not #strings.isEmpty(masterprocno)}">
+			<h2>Not running IP <span th:text="${masterip}"> Master</span></h2>
+		</div>
+		<div th:unless="${ not #strings.isEmpty(masterprocno)}">
+			<h2>Not slave running IP <span th:text="${masterip}"> Master</span></h2>
+		</div>
+    </div>
+	
+		<div th:if="${not #lists.isEmpty(slave0proc)}">
+        <h2><span th:text="${slave0ip}"> slave0</span>  Serveur Replication</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+				<th>Host</th>
+				<th>Command</th>
+				<th>Time</th>
+				<th>State</th>
+            </tr>
+            <tr th:each="client : ${slave0proc}">
+                <td th:text="${client.procid}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.prochost}">Service</td>
+				<td th:text="${client.proccommand}">Service</td>
+				<td th:text="${client.proctime}">Service</td>
+				<td th:text="${client.procstate}">Service</td>
+            </tr>
+        </table>
+    </div>
+	<div th:if="${ #lists.isEmpty(slave0proc)}">
+		<div th:if="${ not #strings.isEmpty(slave0procno)}">
+			<h2>Not running IP <span th:text="${slave0ip}"> slave0</span></h2>
+		</div>
+		<div th:unless="${ not #strings.isEmpty(slave0procno)}">
+			<h2>Not slave running IP <span th:text="${slave0ip}"> Master</span></h2>
+		</div>
+    </div>
+	
+	    <div th:if="${not #lists.isEmpty(slave1proc)}">
+        <h2><span th:text="${slave1ip}">slave1</span>   Serveur Direction</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+				<th>Host</th>
+				<th>Command</th>
+				<th>Time</th>
+				<th>State</th>
+            </tr>
+            <tr th:each="client : ${slave1proc}">
+                <td th:text="${client.procid}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.prochost}">Service</td>
+				<td th:text="${client.proccommand}">Service</td>
+				<td th:text="${client.proctime}">Service</td>
+				<td th:text="${client.procstate}">Service</td>
+            </tr>
+        </table>
+    </div>
+	<div th:if="${ #lists.isEmpty(slave1proc)}">
+		<div th:if="${ not #strings.isEmpty(slave1procno)}">
+			<h2>Not running IP <span th:text="${slave1ip}"> slave1</span></h2>
+		</div>
+		<div th:unless="${ not #strings.isEmpty(slave1procno)}">
+			<h2>Not slave running IP <span th:text="${slave1ip}"> Master</span></h2>
+		</div>
+    </div>
+	
+	  <div th:if="${not #lists.isEmpty(slave2proc)}">
+        <h2><span th:text="${slave2ip}"> slave2 </span> Serveur Siege</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+				<th>Host</th>
+				<th>Command</th>
+				<th>Time</th>
+				<th>State</th>
+            </tr>
+            <tr th:each="client : ${slave2proc}">
+                <td th:text="${client.procid}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.prochost}">Service</td>
+				<td th:text="${client.proccommand}">Service</td>
+				<td th:text="${client.proctime}">Service</td>
+				<td th:text="${client.procstate}">Service</td>
+            </tr>
+        </table>
+    </div>
+	<div th:if="${ #lists.isEmpty(slave2proc)}">
+		<div th:if="${ not #strings.isEmpty(slave2procno)}">
+			<h2>Not running IP <span th:text="${slave2ip}"> slave1</span></h2>
+		</div>
+		<div th:unless="${ not #strings.isEmpty(slave2procno)}">
+			<h2>Not slave running IP <span th:text="${slave2ip}"> Master</span></h2>
+		</div>
+    </div>
+	
+	    <div th:if="${not #lists.isEmpty(slave3proc)}">
+        <h2><span th:text="${slave3ip}"> slave3</span>  Serveur yaoundé</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th> 
+				<th>Host</th>
+				<th>Command</th>
+				<th>Time</th>
+				<th>State</th>
+            </tr>
+            <tr th:each="client : ${slave3proc}">
+                <td th:text="${client.procid}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.prochost}">Service</td>
+				<td th:text="${client.proccommand}">Service</td>
+				<td th:text="${client.proctime}">Service</td>
+				<td th:text="${client.procstate}">Service</td>
+            </tr>
+        </table>
+    </div>
+	<div th:if="${ #lists.isEmpty(slave3proc)}">
+		<div th:if="${ not #strings.isEmpty(slave3procno)}">
+			<h2>Not running IP <span th:text="${slave3ip}"> slave3</span></h2>
+		</div>
+		<div th:unless="${ not #strings.isEmpty(slave3procno)}">
+			<h2>Not slave running IP <span th:text="${slave3ip}"> Slave3</span></h2>
+		</div>
+    </div>
+	
+	
+	
+	<div th:if="${ not #lists.isEmpty(mysqlerrors)}">
+	     <h2> Lot mysql error de <span th:text="${masterip}"> Master</span> Master </h2>
+        <table class="table table-striped">
+		<tr th:each="element : ${mysqlerrors}">
+		  <td th:text="${element}"></td>
+		</tr>
+	  </table>
+    </div>
+		<div th:if="${ not #lists.isEmpty(saves)}">
+	     <h2> Dernieres sauvegardes de <span th:text="${masterip}"> Master</span> Master </h2>
+        <table class="table table-striped">
+		<tr th:each="element : ${saves}">
+		  <td th:text="${element}"></td>
+		</tr>
+	  </table>
+    </div>
+	
+</div>
+<div th:if="${ not #lists.isEmpty(savesips)}">
+ <h2> Liste des adresses ip connectes a  <span th:text="${slave1ip}"> Master</span> Master </h2>
+<table class="table table-striped">
+<tr th:each="element : ${savesips}">
+  <td th:text="${element}"></td>
+</tr>
+</table>
+</div>
+
+<div th:if="${ not #lists.isEmpty(leslastsavs)}">
+	<h2> Dernieres sauvegarde sur support externe  <span th:text="${masterip}"> Master</span> Master </h2>
+   <table class="table table-striped">
+   <tr th:each="element : ${leslastsavs}">
+	 <td th:text="${element}"></td>
+   </tr>
+   </table>
+   </div>
+   
+	  <div th:if="${not #lists.isEmpty(tickets)}">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th> 
+				<th>Customer</th>
+				<th>Projet</th>
+				<th>Done</th>
+				<th>ToDo</th>
+            </tr>
+            <tr th:each="client : ${tickets}">
+                <td th:text="${client.idtick}"><a href="/client/${client.id}">Id</a></td>
+				<td th:text="${client.customertick}">Service</td>
+				<td th:text="${client.projettick}">Service</td>
+				<td th:text="${client.donetick}">Service</td>
+				<td th:text="${client.todotick}">Service</td>
+            </tr>
+        </table>
+    </div>
+	
+</div>
+</body>
+</html>

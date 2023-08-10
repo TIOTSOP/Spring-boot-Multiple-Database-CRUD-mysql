@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des adresses disponibles </title>
+
+</head>
+<body>
+<div class="container">
+	<h2>Etats de processus de replications en cours <span th:text="${lenow}"> Master</span></h2>
+
+    <div th:if="${ not #lists.isEmpty(savesipsm)}">
+        <h2> La clef wifi est connectée<span th:text="${slave1ip}"> Master</span> Master </h2>       
+    </div>
+
+    <div th:if="${  #lists.isEmpty(savesipsm)}">
+        <h2> La clef wifi n'est pas connectée<span th:text="${slave1ip}"> Master</span> Master </h2>       
+    </div>
+
+<div th:if="${ not #lists.isEmpty(savesips)}">
+ <h2> Liste des adresses ip connectes a a la cles wifi <span th:text="${slave1ip}"> Master</span> Master </h2>
+<table class="table table-striped">
+<tr th:each="element : ${savesips}">
+  <td th:text="${element}"></td>
+</tr>
+</table>
+</div>
+
+	  
+	
+</div>
+</body>
+</html>

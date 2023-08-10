@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des postes</title>
+
+   
+</head>
+<body>
+<div class="container">
+   
+	<a href="#" th:href="@{/poste/new}">Nouvelle Poste</a>
+    <div th:if="${not #lists.isEmpty(postes)}">
+        <h2>Poste List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Numpos</th>
+                <th>CpuName</th>
+                <th>Sysutil</th>
+				<th>Nbrsec</th>
+                <th>essai</th>
+				<th>temps</th>
+                <th>utilmch</th>
+                <th>obscpu</th>
+                <th>View</th>
+                <th>Edit</th>
+				<th>Deverouiller</th>
+				<th>Verouiller</th>
+            </tr>
+            <tr th:each="poste : ${postes}">
+                <td th:text="${poste.id}">   <a href="/poste/${poste.id}"> typcli </a> </td>
+                 <td th:text="${poste.cpunam}">codsoc</td>
+				 <td th:text="${poste.sysutil}">codtab</td>
+				 <td th:text="${poste.nbrsec}">codcle</td>
+				 <td th:text="${poste.essai}">info1</td>
+				 <td th:text="${poste.temps}">codtab</td>
+				 <td th:text="${poste.utilmch}">codcle</td>
+				 <td th:text="${poste.obscpu}">info1</td>
+                <td><a th:href="${ '/poste/' + poste.id}">View</a></td>
+                <td><a th:href="${'/poste/edit/' + poste.id}">Edit</a></td>
+				<td><a th:href="${'/poste/deverouiller/' + poste.id}">Deverouiller</a></td>
+				<td><a th:href="${'/poste/verouiller/' + poste.id}">Verouiller</a></td>
+            </tr>
+        </table>
+
+    </div>
+	
+	
+</div>
+
+</body>
+</html>

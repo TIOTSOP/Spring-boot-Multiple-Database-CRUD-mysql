@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+ 
+</head>
+<body>
+<div class="container">
+   <a href="#" th:href="@{/comments}">Liste des Comment</a>
+	<a href="#" th:href="@{/commentsau}">Comments actifs/priorites/actuers</a>
+    <h2>Comment Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${comment}" th:action="@{/commenttask}" method="post">
+			<div class="form-group">
+                <label class="col-sm-2 control-label">id:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"  th:field="*{id}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">comment name:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{obs}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">comment date:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{datecom}"/>
+                </div>
+            </div>
+			
+			 <div class="form-group">
+                <label class="col-sm-2 control-label">comment id task</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{idtask}"/>
+                </div>
+            </div>
+			
+			 
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:if="${not #lists.isEmpty(comments)}">
+        <h2>Comment List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id comment</th>
+				<th>comment</th>
+                <th>dtecom</th>
+                <th>idtask</th> 
+                <th>View</th>
+                <th>Edit</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="comment : ${comments}">
+                <td th:text="${comment.id}">   <a href="/comment/${comment.id}"> typcli </a> </td>
+                 <td th:text="${comment.obs}">codsoc</td>
+				 <td th:text="${comment.datecom}">codtab</td>
+                 <td th:text="${comment.idtask}">codtab</td>
+                <td><a th:href="${ '/comment/' + comment.id}">View</a></td>
+                <td><a th:href="${'/comment/edit/' + comment.id}">Edit</a></td>
+                 <td><a th:href="${'/comment/delete/' + comment.id}">Delete</a></td> 
+                 <td><a th:href="${'/comment/showtasks/' + comment.idtask}">Delete</a></td> 
+            </tr>
+        </table>
+    </div>
+	 <div th:if="${ #lists.isEmpty(comments)}">
+        <h2>Empty Comment List</h2>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

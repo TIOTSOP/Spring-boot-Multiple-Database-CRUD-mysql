@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des tickets</title>
+
+   
+</head>
+<body>
+<div class="container">
+   
+	<a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+	<a href="#" th:href="@{/ticketsau}">Tickets actifs ou closes</a>
+	
+	<a href="#" th:href="@{/ticketsclose}">Tickets exécutes</a>
+	
+	<a href="#" th:href="@{/ticketsactif}">Tickets ouverts</a>
+	<a href="#" th:href="@{/showticketsstarts}">Tickets Commenses(starts)</a>
+	
+	<a href="#" th:href="@{/tasks}">Liste des tasks full</a>
+	<a href="#" th:href="@{/clients}">Liste des clients full</a>
+
+
+  <form class="form-horizontal" th:object="${MySeachZone}" th:action="@{/tickets/customer/}" method="post">
+		
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Entrer le nom du client pour effecteur la recherche</label>
+                <div class="col-sm-5">
+					   <input type="text" id="searchcode"  class="form-control"  th:name="zonetexte" />
+                </div>
+				<div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            </div>
+			
+		
+        </form>
+
+
+
+    <div th:if="${not #lists.isEmpty(tickets)}">
+        <h2>Ticket List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id</th>
+                <th>customer</th>
+                <th>projet</th>
+				<th>done</th>
+                <th>todo</th>
+				 <th>Date upload</th>
+				<th>Acteur</th>
+                <th>Prorite</th>
+				 <th>status</th>
+                <th>View</th>
+                <th>Edit</th>
+				<th>Add Task</th>
+				<th>Show Tasks</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="ticket : ${tickets}">
+                <td th:text="${ticket.id}">   <a href="/ticket/${ticket.id}"> typcli </a> </td>
+                 <td th:text="${ticket.customertick}">codsoc</td>
+				 <td th:text="${ticket.projettick}">codtab</td>
+				 <td th:text="${ticket.todotick}">codcle</td>
+				 <td th:text="${ticket.donetick}">info1</td>
+				  <td th:text="${ticket.datupdtick}">codtab</td>
+				 <td th:text="${ticket.acteurtick}">codcle</td>
+				 <td th:text="${ticket.voltick}">info1</td>
+				  <td th:text="${ticket.statustick}">info1</td>
+                <td><a th:href="${ '/ticket/' + ticket.id}">View</a></td>
+                <td><a th:href="${'/ticket/edit/' + ticket.id}">Edit</a></td>
+				<td><a th:href="${'/task/addwithtick/' + ticket.id}">Add Task</a></td>
+				<td><a th:href="${'/task/showwithtick/' + ticket.id}">show Tasks</a></td>
+<!--                 <td><a th:href="${'/ticket/delete/' + ticket.id}">Delete</a></td> -->
+            </tr>
+        </table>
+
+    </div>
+	
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Liste des clients</title>
+
+   
+</head>
+<body>
+<div class="container">
+   
+	<a href="#" th:href="@{/client/new}">Nouvelle Client</a>
+	<a href="#" th:href="@{/clients}">Liste des clients full</a>
+	<a href="#" th:href="@{/ticket/new}">Nouvelle Ticket</a>
+	<a href="#" th:href="@{/tickets}">Liste des tickets full</a>
+    <div th:if="${not #lists.isEmpty(clients)}">
+        <h2>Client List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id client</th>
+				<th>name</th>
+                <th>tel</th>
+                <th>loc</th>
+				<th>responsable</th>
+                <th>nbre postes</th>
+				 <th>observations</th>
+				<th>status</th> 
+                <th>View</th>
+                <th>Edit</th>
+            <!--     <th>Delete</th> -->
+            </tr>
+            <tr th:each="client : ${clients}">
+                <td th:text="${client.id}">   <a href="/client/${client.id}"> typcli </a> </td>
+                 <td th:text="${client.clientname}">codsoc</td>
+				 <td th:text="${client.clienttel}">codtab</td>
+				 <td th:text="${client.clientresp}">codcle</td>
+				 <td th:text="${client.clientnbposte}">info1</td>
+				  <td th:text="${client.clientobs}">codtab</td>
+				  <td th:text="${client.statusclient}">info1</td>
+                <td><a th:href="${ '/client/' + client.id}">View</a></td>
+                <td><a th:href="${'/client/edit/' + client.id}">Edit</a></td>
+<!--                 <td><a th:href="${'/client/delete/' + client.id}">Delete</a></td> -->
+            </tr>
+        </table>
+    </div>
+	 <div th:if="${ #lists.isEmpty(clients)}">
+        <h2>Empty Client List</h2>
+    </div>
+	
+</div>
+
+</body>
+</html>
